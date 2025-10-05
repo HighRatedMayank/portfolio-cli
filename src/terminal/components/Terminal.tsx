@@ -131,7 +131,7 @@ export const Terminal = () => {
       <div key={index}>
         {line.includes('Suryansh Garg') ? (
           <>
-            Hi, I'm <strong style={{ color: '#00ff88' }}>Suryansh Garg</strong>, a Software & AI Engineer.
+            Hi, I'm <strong style={{ color: '#00ff88' }}>Suryansh Garg</strong>, a Sophomore at IIT BHU.
           </>
         ) : (
           line
