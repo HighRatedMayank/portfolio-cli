@@ -96,7 +96,7 @@ export default function App() {
             opacity: 0.8,
             textShadow: '0 0 8px #00ff88',
           }}>
-            [Interactive 3D Card]
+            Made with &#10084; by Suryansh Garg
           </div>
         )}
 

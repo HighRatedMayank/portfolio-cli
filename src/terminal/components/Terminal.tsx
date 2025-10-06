@@ -3,15 +3,17 @@ import { commands } from "../data/commands";
 
 export const Terminal = () => {
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState<Array<{type: 'command' | 'output', content: string}>>([
+  const [history, setHistory] = useState<Array<{type: 'command' | 'output', content: string, isTyping?: boolean, displayedContent?: string}>>([
     { type: 'command', content: 'welcome' },
-    { type: 'output', content: "Hi, I'm Suryansh Garg, a Sophomore at IIT BHU.\n\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands." }
+    { type: 'output', content: "Hi, I'm Suryansh Garg, a Sophomore at IIT BHU.\n\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands.", isTyping: false, displayedContent: "Hi, I'm Suryansh Garg, a Sophomore at IIT BHU.\n\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands." }
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [showCursor, setShowCursor] = useState(true);
+  const [isCommandRunning, setIsCommandRunning] = useState(false);
+
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const typingTimeoutRef = useRef<number | null>(null);
 
   // Auto-scroll to bottom when new content is added
   useEffect(() => {
@@ -35,15 +37,41 @@ export const Terminal = () => {
     return () => terminal?.removeEventListener('click', handleClick);
   }, []);
 
-  // Blinking cursor effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowCursor(prev => !prev);
-    }, 500);
-    return () => clearInterval(interval);
+  // CSS handles cursor blinking animation
+
+  // Typing animation effect
+  const typeText = useCallback((text: string, historyIndex: number) => {
+    let currentIndex = 0;
+    const typingSpeed = 10; // milliseconds per character (faster typing)
+    
+    const typeNextChar = () => {
+      if (currentIndex <= text.length) {
+        setHistory(prev => prev.map((item, i) => 
+          i === historyIndex 
+            ? { ...item, displayedContent: text.slice(0, currentIndex), isTyping: currentIndex < text.length }
+            : item
+        ));
+        
+        currentIndex++;
+        if (currentIndex <= text.length) {
+          typingTimeoutRef.current = setTimeout(typeNextChar, typingSpeed);
+        } else {
+          setIsCommandRunning(false);
+        }
+      }
+    };
+    
+    typeNextChar();
   }, []);
 
-
+  // Cleanup typing timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleCommand = useCallback((cmd: string) => {
     const command = cmd.toLowerCase().trim();
@@ -62,17 +90,30 @@ export const Terminal = () => {
 
     const output = commands[command as keyof typeof commands] || `Command not found: ${command}. Type 'help' for available commands.`;
     
+    setIsCommandRunning(true);
+    
+    // Add command to history first
     setHistory(prev => [
       ...prev, 
       { type: 'command', content: cmd },
-      { type: 'output', content: output }
+      { type: 'output', content: output, isTyping: true, displayedContent: '' }
     ]);
+    
     setCommandHistory(prev => {
       const newHistory = [command, ...prev.filter(h => h !== command)];
       return newHistory.slice(0, 50);
     });
     setHistoryIndex(-1);
     setInput("");
+    
+    // Start typing animation for the output
+    setTimeout(() => {
+      setHistory(currentHistory => {
+        const lastIndex = currentHistory.length - 1;
+        typeText(output, lastIndex);
+        return currentHistory;
+      });
+    }, 100); // Small delay before typing starts
   }, []);
 
   const getAutoComplete = useCallback((partial: string) => {
@@ -82,6 +123,12 @@ export const Terminal = () => {
   }, []);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Prevent input during typing animation
+    if (isCommandRunning) {
+      e.preventDefault();
+      return;
+    }
+    
     switch (e.key) {
       case "Enter":
         handleCommand(input);
@@ -129,9 +176,75 @@ export const Terminal = () => {
   const formatOutput = (text: string) => {
     return text.split('\n').map((line, index) => (
       <div key={index}>
-        {line}
+        {formatLine(line)}
       </div>
     ));
+  };
+
+  const formatLine = (line: string) => {
+    // Match pattern: "🔗 Text: URL" or "🔗 URL" 
+    const linkPattern = /🔗\s+(.*?):\s+(https?:\/\/[^\s]+)|🔗\s+(https?:\/\/[^\s]+)/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = linkPattern.exec(line)) !== null) {
+      // Add text before the link
+      if (match.index > lastIndex) {
+        parts.push(line.slice(lastIndex, match.index));
+      }
+
+      // Extract link text and URL
+      const linkText = match[1] || match[3]; // Either "Text" part or just the URL
+      const url = match[2] || match[3]; // The actual URL
+      
+      // Create clickable link
+      parts.push(
+        <span key={match.index}>
+          🔗{' '}
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#00ffaa',
+              textDecoration: 'underline',
+              cursor: 'pointer',
+              transition: 'color 0.2s ease',
+            }}
+            onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#ffffff'}
+            onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#00ffaa'}
+          >
+            {linkText.includes('://') ? getLinkDisplayText(url) : linkText}
+          </a>
+        </span>
+      );
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining text after the last link
+    if (lastIndex < line.length) {
+      parts.push(line.slice(lastIndex));
+    }
+
+    // If no links found, return the original line
+    return parts.length > 0 ? parts : line;
+  };
+
+  const getLinkDisplayText = (url: string) => {
+    // Extract meaningful text from URL for display
+    if (url.includes('github.com')) {
+      const parts = url.split('/');
+      return `GitHub: ${parts[parts.length - 1]}`;
+    }
+    if (url.includes('drive.google.com')) {
+      return 'View PDF';
+    }
+    if (url.includes('vercel.app') || url.includes('.com') || url.includes('.app')) {
+      return 'Live Demo';
+    }
+    return 'Open Link';
   };
 
   return (
@@ -195,7 +308,8 @@ export const Terminal = () => {
               </div>
             ) : (
               <div style={{ color: '#ffffff', marginLeft: '0px' }}>
-                {formatOutput(item.content)}
+                {formatOutput(item.displayedContent || item.content)}
+                {item.isTyping && <span style={{ color: '#00ff88', animation: 'blink 1s infinite' }}>▊</span>}
               </div>
             )}
           </div>
@@ -231,25 +345,27 @@ export const Terminal = () => {
                 minWidth: 0,
               }}
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => !isCommandRunning && setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               autoFocus
               spellCheck={false}
+              disabled={isCommandRunning}
             />
-            <span
-              style={{
-                position: 'absolute',
-                top: '0',
-                left: `${Math.min(input.length * 0.6, 30)}em`, /* Limit cursor position */
-                color: '#00ff88',
-                opacity: showCursor ? 1 : 0,
-                animation: 'blink 1s step-end infinite',
-                textShadow: '0 0 8px #00ff88',
-                pointerEvents: 'none',
-              }}
-            >
-              ▊
-            </span>
+            {!isCommandRunning && (
+              <span
+                style={{
+                  position: 'absolute',
+                  top: '0',
+                  left: `${Math.min(input.length * 0.6, 30)}em`, /* Limit cursor position */
+                  color: '#00ff88',
+                  animation: 'blink 1.2s ease-in-out infinite',
+                  textShadow: '0 0 8px #00ff88',
+                  pointerEvents: 'none',
+                }}
+              >
+                ▊
+              </span>
+            )}
           </div>
         </div>
       </div>

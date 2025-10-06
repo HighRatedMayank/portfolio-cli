@@ -1,133 +1,155 @@
 export const commands = {
-  help: `🧭 Command Index
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- ~ about..........📖 Learn about Suryansh Garg
- ~ projects.......🚀 Explore featured creations  
- ~ skills.........🛠️ View technical skills & tools
- ~ experience.....💼 Professional & research background
- ~ education......🎓 Academic milestones
- ~ certifications.🏆 Verified expertise
- ~ leadership.....👥 Leadership & community impact
- ~ contact........📞 Connect with me
- ~ sudo...........🔐 Secret command... or is it?
- ~ clear..........🧹 Clear the terminal
+  help: `
+🧭 HELP :: COMMAND INDEX
+──────────────────────────────────────────────
+> about ........ 📖  Learn about Suryansh Garg  
+> projects ..... 🚀  Explore featured creations  
+> skills ....... 🛠️  View technical stack  
+> experience ... 💼  Work, research & open-source  
+> education .... 🎓  Academic milestones  
+> certifications 🏆  Certifications & achievements  
+> leadership ... 👥  Leadership & community roles  
+> contact ...... 📞  Reach out or connect  
+> sudo ......... 🔐  Secret command? Try it  
+> clear ........ 🧹  Clear terminal output
 
 💡 Tip: Type any command and hit [Enter] to explore.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+`,
 
-  about: `👨‍💻 About Suryansh Garg
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Hey — I'm Suryansh Garg: a Software & AI Engineer passionate about
+  about: `
+👨‍💻 ABOUT :: SURYANSH GARG
+──────────────────────────────────────────────
+Hey — I'm Suryansh Garg, a Software & AI Engineer passionate about
 building intelligent, secure, and high-performance systems.
 
-Core strengths:
-  • AI — applied intelligence, automation, and real-world deployment
-  • ML — data-driven modeling, optimization, and experimentation
-  • WebDev — full-stack development with modern frameworks
-  • Cybersecurity — InfoSec, ethical hacking, and system defense
-  • CP (Competitive Programming) — logic, algorithms, and precision
-  • DSA — efficient, scalable problem-solving
-  • Hackathons — rapid prototyping, collaboration, and innovation
+⚙️ Core Strengths
+> AI ........ applied intelligence & automation  
+> ML ........ data-driven modeling & optimization  
+> WebDev .... full-stack development with modern frameworks  
+> CyberSec .. ethical hacking & system defense  
+> CP/DSA .... algorithmic problem-solving & logic design  
+> Hackathons  rapid prototyping & innovation  
 
-I thrive at the intersection of creativity, code, and computation —
-constantly learning, building, and pushing my technical limits.`,
+🎯 Always learning, building, and pushing boundaries.
+`,
 
-  projects: `🚀 Projects & Research
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  projects: `
+🚀 PROJECTS :: FEATURED & RESEARCH
+──────────────────────────────────────────────
 🧬 Animation Club Website — Frontend Developer  
-Contributed to the website of IIT BHU Animation Club, building interactive 
-UI components with React and Tailwind CSS. Collaborated with the team on 
-design and functionality, creating a cohesive cyber-themed experience.
+> Built responsive UI with React + Tailwind CSS.  
+> Collaborated with design & backend teams on a cyber-themed platform.  
+> 🔗 Live Demo: https://animation-club.vercel.app  
 
-💾 CHIP-8 Emulator — Low-Level Systems Project  
-Implemented a CHIP-8 emulator in C, handling opcode parsing, memory, 
-and basic graphics rendering. Strengthened understanding of computer 
-architecture and emulation logic.
+💾 CHIP-8 Emulator — Systems Project  
+> Implemented in C++; opcode parsing, memory, and basic rendering.  
+> 🔗 Source Code: https://github.com/suryansh00001/CHIP-8_CPP  
 
 🔐 GenPas — AI-Driven Secure Password Generator  
-Developed GenPas, an AI-powered tool generating secure, human-friendly 
-passwords using cryptography and ML-based pattern analysis.
+> Generates secure, human-friendly passwords using ML & cryptography.  
+> 🔗 Repository: https://github.com/suryansh00001/genpas  
 
-📊 Survey Papers: Deep Surveillance & Adversarial Attacks  
-Co-authored two survey papers on:  
-  • Deep Surveillance Systems — AI for monitoring and anomaly detection  
-  • Adversarial Attacks — studying vulnerabilities in neural networks and defense strategies  
+📊 Survey Papers  
+> Deep Surveillance Systems — AI-based monitoring & anomaly detection  
+> 🔗 Research Paper: https://drive.google.com/file/d/1RkK5YzoRfohdHGz6W4g06LGbjETu4YtN/view?usp=sharing  
+> Adversarial Attacks — vulnerabilities & defense in neural networks  
+> 🔗 Research Paper: https://drive.google.com/file/d/1a7JkJQF-7qOPfsay34QgntCGVqwZA5Dl/view?usp=sharing  
 
-🧠 Ongoing R&D Projects  
-Exploring AI-Cybersecurity systems, algorithmic optimization tools, and hackathon prototypes leveraging DSA, ML, and defensive AI.`,
+🧠 Ongoing R&D  
+> AI-CyberSec integration, algorithmic optimization tools, and hackathon prototypes.
+`,
 
-  skills: `🛠️ Technical Arsenal
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💻 Languages:     TypeScript • JavaScript • Python • C++
-🌐 Frontend:      React • Three.js • Next.js • Tailwind CSS
-🧩 Backend:       Node.js • Express • FastAPI • REST APIs
-🤖 AI/ML:         TensorFlow • PyTorch • Scikit-learn
-☁️ Cloud & DevOps: AWS • Docker • Vercel • Git
-🎨 Creative Tools: Figma • Blender • Adobe Suite
+  skills: `
+🛠️ SKILLS :: TECHNICAL STACK
+──────────────────────────────────────────────
+💻 Languages:   TypeScript • JavaScript • Python • C++  
+🌐 Frontend:    React • Next.js • Tailwind CSS • Three.js  
+🧩 Backend:     Node.js • Express • FastAPI • REST APIs  
+🤖 AI/ML:       TensorFlow • PyTorch • Scikit-learn  
+☁️ Cloud/DevOps: AWS • Docker • Vercel • Git  
+🎨 Creative:    Figma • Blender • Adobe Suite  
 
-⚡ Constantly honing skills through coursework, open-source, and real-world projects.`,
+> Constantly expanding toolkit through open-source & hands-on projects.
+`,
 
-  experience: `💼 Experience
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🏢 Summer Internship — Prof. Indradeep Mastan, IIT BHU  
-• Conducted AI/ML research, developing and testing models under supervision.
+  experience: `
+💼 EXPERIENCE :: PROFESSIONAL & RESEARCH
+──────────────────────────────────────────────
+🏢 Summer Internship — under Prof. Indradeep Mastan, IIT BHU  
+> Conducted AI/ML research; developed and tested models in experimental setups.
 
-🔧 Open Source & Collaborative Projects  
-• Contributed to Google MCP repo and other AI/WebDev/Cybersecurity projects.  
-• Worked on the Animation Club Website frontend (React/Tailwind CSS).  
+🔧 Open Source Contributions  
+> Contributed to Google MCP repository and community projects.  
+> Developed frontend for IIT BHU Animation Club site.
 
 🚀 Startup Experience — SocialSense  
-• Assisted in product development, building practical AI/Web solutions with a small team.  
-• Collaborated on prototypes and system optimizations.`,
+> Assisted in AI/Web prototypes & optimizations.  
+> Collaborated in a small agile team building product features.
+`,
 
-  education: `🎓 Academic Background
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🏛️ Indian Institute of Technology (BHU), Varanasi  
-B.Tech + M.Tech (Integrated Dual Degree) — Civil Engineering  
-↳ Focus Transition: Artificial Intelligence & Computing Systems  
+  education: `
+🎓 EDUCATION :: ACADEMIC BACKGROUND
+──────────────────────────────────────────────
+🏛️ IIT (BHU), Varanasi  
+> B.Tech + M.Tech (Integrated Dual Degree) — Civil Engineering  
+> Focus shift: Artificial Intelligence & Computing Systems  
 
-🏆 Highlights:
-  • Published survey papers on Deep Surveillance & Adversarial Attacks  
-  • Active participant in hackathons and coding competitions`,
+🏆 Highlights  
+> Published survey papers on Deep Surveillance & Adversarial Attacks  
+> Active in hackathons, coding contests & AI research initiatives
+`,
 
-  certifications: `🏆 Certifications & Achievements
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔹 CTF Competitions — multiple events, hands-on cybersecurity challenges  
-🔹 SimuSolve Certification — problem-solving & simulation techniques  
-🔹 CivicTech Certification — tech solutions for social impact  
-🔹 Robotics Winter Camp — Top 5 ranking, robotics & automation  
-🔹 Google MCP (repo contributions)  
-🔹 AWS Cloud Practitioner  
-🔹 DeepLearning.AI TensorFlow Developer
+  certifications: `
+🏆 CERTIFICATIONS :: CREDENTIALS & AWARDS
+──────────────────────────────────────────────
+🔹 CTF Competitions — hands-on cybersecurity challenges  
+🔹 SimuSolve Certification — simulation & problem-solving  
+🔹 CivicTech Certification — social innovation via technology  
+🔹 Robotics Winter Camp — Top-5 rank, automation & control  
+🔹 Google MCP — open-source contributions  
+🔹 AWS Cloud Practitioner — foundational cloud skills  
+🔹 DeepLearning.AI TensorFlow Developer — ML specialization  
 
-💡 Reflects expertise across AI, Cybersecurity, WebDev, Robotics, and applied problem-solving.`,
+> Demonstrated excellence in AI, CyberSec, WebDev & Robotics.
+`,
 
-  leadership: `👥 Leadership & Community
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  leadership: `
+👥 LEADERSHIP :: COMMUNITY & TEAM ROLES
+──────────────────────────────────────────────
 🎬 Core Member — IIT BHU Animation Club  
-• Organized workshops, led creative projects, and mentored juniors.  
+> Organized creative & technical workshops.  
+> Led project coordination and mentored junior members.
 
-💻 Tech Lead — AI Systems Project  
-• Oversaw architecture, code reviews, and team collaboration.  
+🧩 Member — COPS (Club of Programmers, IIT BHU)  
+> Active participant in coding events, mentorship, and open-source initiatives.  
 
-🌍 Open Source Contributions  
-• Actively maintaining personal projects and contributing to community libraries.`,
+🚀 Team Leadership — SIH, SimuSolve & CivicTech  
+> Led and guided teams across national hackathons and innovation challenges.  
+> Drove end-to-end development — from ideation and simulation design to functional prototypes.  
+> Focused on AI, Web, and CivicTech solutions with practical social impact.
 
-  contact: `📞 Connect With Me
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📧 Email:     suryanshg371@gmail.com 
-🐙 GitHub:    github.com/suryansh00001  
-💼 LinkedIn:  linkedin.com/in/suryansh00001  
-🐦 Codeforces:   @suryanshg371
+> Summary: Leadership built on teamwork, technical depth, and creative execution.
+`,
 
-🪄 Always open to collaboration, hackathons, and innovative projects!`,
+  contact: `
+📞 CONTACT :: CONNECT WITH SURYANSH
+──────────────────────────────────────────────
+📧 Email ...... 🔗 Send Email: mailto:suryanshg371@gmail.com  
+🐙 GitHub ..... 🔗 Profile: https://github.com/suryansh00001  
+💼 LinkedIn ... 🔗 Connect: https://linkedin.com/in/suryansh00001  
+🧠 Codeforces . 🔗 Profile: https://codeforces.com/profile/suryanshg371  
 
-  sudo: `🔐 Access Denied — Nice Try!
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⚠️  Root privileges required.
-Only Suryansh has superuser access here.
+> Open to collaborations, hackathons & AI-driven projects.
+`,
 
-💡 Curiosity is good… but hacking your portfolio isn’t part of it 😉`,
+  sudo: `
+🔐 ACCESS DENIED :: NICE TRY
+──────────────────────────────────────────────
+> Root privileges required.
+> Only Suryansh has administrative clearance.
+
+💡 Curiosity is cool — intrusion isn’t 😉
+`,
 
   clear: "",
 };

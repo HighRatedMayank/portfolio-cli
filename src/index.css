@@ -25,21 +25,19 @@ body {
 
 /* Terminal cursor animation */
 @keyframes blink {
-  50% { opacity: 0; }
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
+
 .cursor {
   display: inline-block;
   width: 8px;
   height: 14px;
   background: #06d6a0;
   margin-left: 2px;
-  animation: blink 1s step-start infinite;
+  animation: blink 1.2s ease-in-out infinite;
 }
 
-/* Cyber terminal blink animation */
-@keyframes blink {
-  50% { opacity: 0; }
-}
 
 /* Hide scrollbars for terminal */
 ::-webkit-scrollbar {
