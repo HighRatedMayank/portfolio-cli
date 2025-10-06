@@ -134,7 +134,7 @@ building intelligent, secure, and high-performance systems.
   contact: `
 📞 CONTACT :: CONNECT WITH SURYANSH
 ──────────────────────────────────────────────
-📧 Email ...... 🔗 Send Email: mailto:suryanshg371@gmail.com  
+📧 Email ...... 🔗 Copy Email: mailto:suryanshg371@gmail.com  
 🐙 GitHub ..... 🔗 Profile: https://github.com/suryansh00001  
 💼 LinkedIn ... 🔗 Connect: https://linkedin.com/in/suryansh00001  
 🧠 Codeforces . 🔗 Profile: https://codeforces.com/profile/suryanshg371  

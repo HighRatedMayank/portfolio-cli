@@ -182,11 +182,21 @@ export const Terminal = () => {
   };
 
   const formatLine = (line: string) => {
-    // Match pattern: "🔗 Text: URL" or "🔗 URL" 
-    const linkPattern = /🔗\s+(.*?):\s+(https?:\/\/[^\s]+)|🔗\s+(https?:\/\/[^\s]+)/g;
+    // Enhanced pattern to match "🔗 Text: URL" format including mailto links
+    const linkPattern = /🔗\s+(.*?):\s+((?:https?:\/\/|mailto:)[^\s]+)/g;
     const parts = [];
     let lastIndex = 0;
     let match;
+
+    const copyToClipboard = (email: string) => {
+      const emailAddress = email.replace('mailto:', '');
+      navigator.clipboard.writeText(emailAddress).then(() => {
+        // You could add a toast notification here if desired
+        console.log('Email copied to clipboard:', emailAddress);
+      }).catch(err => {
+        console.error('Failed to copy email:', err);
+      });
+    };
 
     while ((match = linkPattern.exec(line)) !== null) {
       // Add text before the link
@@ -195,30 +205,53 @@ export const Terminal = () => {
       }
 
       // Extract link text and URL
-      const linkText = match[1] || match[3]; // Either "Text" part or just the URL
-      const url = match[2] || match[3]; // The actual URL
+      const linkText = match[1]; // The descriptive text like "Copy Email"
+      const url = match[2]; // The actual URL/mailto
       
-      // Create clickable link
-      parts.push(
-        <span key={match.index}>
-          🔗{' '}
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: '#00ffaa',
-              textDecoration: 'underline',
-              cursor: 'pointer',
-              transition: 'color 0.2s ease',
-            }}
-            onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#ffffff'}
-            onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#00ffaa'}
-          >
-            {linkText.includes('://') ? getLinkDisplayText(url) : linkText}
-          </a>
-        </span>
-      );
+      // Create clickable element
+      if (url.startsWith('mailto:')) {
+        // For email, create copy button instead of mailto link
+        parts.push(
+          <span key={match.index}>
+            🔗{' '}
+            <span
+              onClick={() => copyToClipboard(url)}
+              style={{
+                color: '#00ffaa',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#ffffff'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#00ffaa'}
+            >
+              {linkText}
+            </span>
+          </span>
+        );
+      } else {
+        // For regular links, keep as anchor
+        parts.push(
+          <span key={match.index}>
+            🔗{' '}
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#00ffaa',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#ffffff'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#00ffaa'}
+            >
+              {linkText}
+            </a>
+          </span>
+        );
+      }
 
       lastIndex = match.index + match[0].length;
     }
@@ -232,20 +265,7 @@ export const Terminal = () => {
     return parts.length > 0 ? parts : line;
   };
 
-  const getLinkDisplayText = (url: string) => {
-    // Extract meaningful text from URL for display
-    if (url.includes('github.com')) {
-      const parts = url.split('/');
-      return `GitHub: ${parts[parts.length - 1]}`;
-    }
-    if (url.includes('drive.google.com')) {
-      return 'View PDF';
-    }
-    if (url.includes('vercel.app') || url.includes('.com') || url.includes('.app')) {
-      return 'Live Demo';
-    }
-    return 'Open Link';
-  };
+
 
   return (
     <>
