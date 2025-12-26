@@ -10,7 +10,7 @@ import CreateText from "./CreateText";
 
 extend({ RoundedPlaneGeometry })
 
-export default function CardTexture({ firstName, lastName, userId, batch, date, profilePicture = '/images/mypic.jpg' }: User) {
+export default function CardTexture({ firstName, lastName, userId, batch, profilePicture = '/images/mypic.jpg' }: User) {
 
     const templateTexture = useTexture('/images/template_v2.svg')
 
@@ -100,7 +100,7 @@ export default function CardTexture({ firstName, lastName, userId, batch, date, 
                     color={"#242424"}
                     fontSize={60}
                     font="/font/ApfelGrotezk.otf"
-                    setTransform={(e, width, height) => e.position.set(0, (360 - (height! / 2)) - 5, 0)}
+                    setTransform={(e, _width, height) => e.position.set(0, (360 - (height! / 2)) - 5, 0)}
                 >
                     24095105
                 </CreateText>
