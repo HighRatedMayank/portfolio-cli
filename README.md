@@ -51,7 +51,7 @@ Want to run this locally? Follow these steps:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Shre-shth/portfolio-cli.git
+git clone https://github.com/Shre-shth/portfolio-CLI.git
 cd portfolio-CLI
 ```
 
