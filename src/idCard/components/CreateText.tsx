@@ -10,7 +10,7 @@ const CreateText = ({ children, preventWordBreak, setTransform, ...opts }: Creat
     return (
         <Text
             scale={[1, -1, 1]}
-            maxWidth={400}
+            maxWidth={opts.maxWidth || 400}
             overflowWrap={preventWordBreak ? "normal" : "break-word"}
             font={opts.font || "/font/Bangers.ttf"}
             color={opts.color || "white"}

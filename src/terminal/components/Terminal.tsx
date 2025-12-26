@@ -3,9 +3,9 @@ import { commands } from "../data/commands";
 
 export const Terminal = () => {
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState<Array<{type: 'command' | 'output', content: string, isTyping?: boolean, displayedContent?: string}>>([
+  const [history, setHistory] = useState<Array<{ type: 'command' | 'output', content: string, isTyping?: boolean, displayedContent?: string }>>([
     { type: 'command', content: 'welcome' },
-    { type: 'output', content: "Hi, I'm Suryansh Garg, a Sophomore at IIT BHU.\n\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands.", isTyping: false, displayedContent: "Hi, I'm Suryansh Garg, a Sophomore at IIT BHU.\n\nWelcome to my interactive portfolio terminal!\nType 'help' to see available commands." }
+    { type: 'output', content: "Hi, I'm Shreshth Vishwakarma, a sophomore at IIT (BHU).\n\nWelcome to my interactive terminal!\nType 'help' to see available commands.", isTyping: false, displayedContent: "Hi, I'm Shreshth Vishwakarma, a sophomore at IIT (BHU).\n\nWelcome to my interactive terminal!\nType 'help' to see available commands." }
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
@@ -43,15 +43,15 @@ export const Terminal = () => {
   const typeText = useCallback((text: string, historyIndex: number) => {
     let currentIndex = 0;
     const typingSpeed = 10; // milliseconds per character (faster typing)
-    
+
     const typeNextChar = () => {
       if (currentIndex <= text.length) {
-        setHistory(prev => prev.map((item, i) => 
-          i === historyIndex 
+        setHistory(prev => prev.map((item, i) =>
+          i === historyIndex
             ? { ...item, displayedContent: text.slice(0, currentIndex), isTyping: currentIndex < text.length }
             : item
         ));
-        
+
         currentIndex++;
         if (currentIndex <= text.length) {
           typingTimeoutRef.current = setTimeout(typeNextChar, typingSpeed);
@@ -60,7 +60,7 @@ export const Terminal = () => {
         }
       }
     };
-    
+
     typeNextChar();
   }, []);
 
@@ -75,13 +75,13 @@ export const Terminal = () => {
 
   const handleCommand = useCallback((cmd: string) => {
     const command = cmd.toLowerCase().trim();
-    
+
     if (command === "clear") {
       setHistory([]);
       setInput("");
       return;
     }
-    
+
     if (command === "") {
       setHistory(prev => [...prev, { type: 'command', content: '' }]);
       setInput("");
@@ -89,23 +89,23 @@ export const Terminal = () => {
     }
 
     const output = commands[command as keyof typeof commands] || `Command not found: ${command}. Type 'help' for available commands.`;
-    
+
     setIsCommandRunning(true);
-    
+
     // Add command to history first
     setHistory(prev => [
-      ...prev, 
+      ...prev,
       { type: 'command', content: cmd },
       { type: 'output', content: output, isTyping: true, displayedContent: '' }
     ]);
-    
+
     setCommandHistory(prev => {
       const newHistory = [command, ...prev.filter(h => h !== command)];
       return newHistory.slice(0, 50);
     });
     setHistoryIndex(-1);
     setInput("");
-    
+
     // Start typing animation for the output
     setTimeout(() => {
       setHistory(currentHistory => {
@@ -115,6 +115,13 @@ export const Terminal = () => {
       });
     }, 100); // Small delay before typing starts
   }, []);
+
+  // Refocus input when command finishes running
+  useEffect(() => {
+    if (!isCommandRunning) {
+      inputRef.current?.focus();
+    }
+  }, [isCommandRunning]);
 
   const getAutoComplete = useCallback((partial: string) => {
     if (!partial) return [];
@@ -128,12 +135,12 @@ export const Terminal = () => {
       e.preventDefault();
       return;
     }
-    
+
     switch (e.key) {
       case "Enter":
         handleCommand(input);
         break;
-      
+
       case "ArrowUp":
         e.preventDefault();
         if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
@@ -142,7 +149,7 @@ export const Terminal = () => {
           setInput(commandHistory[newIndex]);
         }
         break;
-      
+
       case "ArrowDown":
         e.preventDefault();
         if (historyIndex > 0) {
@@ -154,7 +161,7 @@ export const Terminal = () => {
           setInput("");
         }
         break;
-      
+
       case "Tab":
         e.preventDefault();
         const suggestions = getAutoComplete(input);
@@ -207,7 +214,7 @@ export const Terminal = () => {
       // Extract link text and URL
       const linkText = match[1]; // The descriptive text like "Copy Email"
       const url = match[2]; // The actual URL/mailto
-      
+
       // Create clickable element
       if (url.startsWith('mailto:')) {
         // For email, create copy button instead of mailto link
@@ -281,8 +288,8 @@ export const Terminal = () => {
       }}>
         {Object.keys(commands).map((cmd, index) => (
           <span key={cmd}>
-            <span 
-              style={{ 
+            <span
+              style={{
                 cursor: 'pointer',
                 transition: 'color 0.2s',
               }}
@@ -316,13 +323,13 @@ export const Terminal = () => {
         }}
       >
         {history.map((item, i) => (
-          <div key={i} style={{ 
+          <div key={i} style={{
             marginBottom: '8px',
             fontFamily: '"Courier New", "Lucida Console", "Monaco", "Consolas", "Liberation Mono", "DejaVu Sans Mono", monospace'
           }}>
             {item.type === 'command' ? (
               <div>
-                <span style={{ color: '#4fa3ff' }}>suryansh@portfolio</span>
+                <span style={{ color: '#4fa3ff' }}>shreshth@portfolio</span>
                 <span style={{ color: '#00ff88' }}>:~$</span>
                 <span style={{ color: '#ffffff' }}> {item.content}</span>
               </div>
@@ -334,11 +341,11 @@ export const Terminal = () => {
             )}
           </div>
         ))}
-        
+
         {/* Current Input */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
           position: 'sticky',
           bottom: '0',
           backgroundColor: '#000',
@@ -347,7 +354,7 @@ export const Terminal = () => {
           marginTop: '8px',
           fontFamily: '"Courier New", "Lucida Console", "Monaco", "Consolas", "Liberation Mono", "DejaVu Sans Mono", monospace'
         }}>
-          <span style={{ color: '#4fa3ff' }}>suryansh@portfolio</span>
+          <span style={{ color: '#4fa3ff' }}>shreshth@portfolio</span>
           <span style={{ color: '#00ff88' }}>:~$</span>
           <span style={{ color: '#ffffff' }}> </span>
           <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>

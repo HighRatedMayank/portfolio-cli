@@ -1,4 +1,4 @@
-import { Environment, Lightformer, } from "@react-three/drei";
+import { Environment, Lightformer } from "@react-three/drei";
 import { Physics } from "@react-three/rapier";
 import { Canvas } from "@react-three/fiber";
 import Card from "./Card";

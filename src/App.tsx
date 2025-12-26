@@ -2,6 +2,36 @@ import { useState, useEffect } from "react";
 import IdCard from "./idCard/IdCard";
 import { Terminal } from "./terminal/components/Terminal";
 
+const TypewriterText = ({ text }: { text: string }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  /* indexRef removed */
+
+  useEffect(() => {
+    setDisplayedText("");
+    let index = 0;
+    const interval = setInterval(() => {
+      index++;
+      if (index <= text.length) {
+        setDisplayedText(text.slice(0, index));
+      } else {
+        clearInterval(interval);
+      }
+    }, 200); // Slower speed
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return (
+    <div style={{
+      color: '#00ff88',
+      opacity: 0.8,
+      textShadow: '0 0 8px #00ff88',
+    }}>
+      {displayedText}
+      <span style={{ animation: 'blink 1s infinite' }}>|</span>
+    </div>
+  );
+};
+
 export default function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isLaptopOrLarger, setIsLaptopOrLarger] = useState(window.innerWidth >= 1024);
@@ -55,15 +85,25 @@ export default function App() {
           transition: 'width 0.3s ease, opacity 0.3s ease',
           overflow: 'hidden',
         }}>
-          <IdCard 
-            firstName="Suryansh" 
-            lastName="Garg" 
-            userId="24064029" 
-            batch="Tech Enthusiast" 
-            batchId="24" 
-            date="19/11/2006" 
-            profilePicture="/images/mypic.jpg" 
+          <IdCard
+            firstName="Shreshth"
+            lastName="Vishwakarma"
+            userId="24095105"
+            batch="Tech Enthusiast"
+            batchId="24"
+            date="24095105"
+            profilePicture="/images/mypic.jpg"
           />
+          <div style={{
+            marginTop: '-80px',
+            color: '#00ff88',
+            opacity: 0.6,
+            fontSize: '0.8rem',
+            letterSpacing: '1px',
+            animation: 'blink 1.5s infinite'
+          }}>
+            &lt;TAP the ID&gt;
+          </div>
         </div>
 
         {/* Right Panel (60% on laptop, 100% on mobile/tablet - Terminal Portfolio Interface) */}
@@ -91,13 +131,7 @@ export default function App() {
       }}>
         {/* Left: Interactive 3D Card Label - Only show on laptop+ screens */}
         {isLaptopOrLarger && (
-          <div style={{
-            color: '#00ff88',
-            opacity: 0.8,
-            textShadow: '0 0 8px #00ff88',
-          }}>
-            Made with &#10084; by Suryansh Garg
-          </div>
+          <TypewriterText text="I tell people I'm a developer, and they believe me !! 😉 " />
         )}
 
         {/* Right: Timestamp */}

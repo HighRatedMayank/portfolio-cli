@@ -27,7 +27,7 @@ const createBarcodeTexture = (rollNo: string, color: string): CanvasTexture => {
 
     // Truncate roll number if too long (max 20 chars for CODE128)
     const truncatedRollNo = rollNo.substring(0, 20);
-    
+
     try {
         JsBarcode(tempCanvas, truncatedRollNo, {
             format: "CODE128",
@@ -116,15 +116,15 @@ export function useBarcodeAndQrTextures({
                     width: QR_DIMENSIONS.width,
                     height: QR_DIMENSIONS.height,
                     data: qrData,
-                    image: "/images/logo.svg",
-                    dotsOptions: { 
-                        color: "#242424", 
-                        type: "rounded" 
+                    image: "/images/new_logo.png",
+                    dotsOptions: {
+                        color: "#242424",
+                        type: "rounded"
                     },
                     imageOptions: {
                         crossOrigin: "anonymous",
                         hideBackgroundDots: true,
-                        imageSize: 0.4,
+                        imageSize: 0.6,
                         margin: 0,
                     },
                     qrOptions: {
@@ -138,7 +138,7 @@ export function useBarcodeAndQrTextures({
                 });
 
                 qrInstance._domCanvas = qrCanvas;
-                
+
                 const rawData = await qrInstance.getRawData();
                 if (rawData) {
                     const base64Data = await blobToBase64(rawData);

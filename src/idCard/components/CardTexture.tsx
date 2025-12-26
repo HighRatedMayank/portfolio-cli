@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { extend } from '@react-three/fiber';
-import { Image, OrthographicCamera, useTexture } from "@react-three/drei";
+import { OrthographicCamera, useTexture } from "@react-three/drei";
 import { useEffect, useMemo, useRef } from "react";
 
 import { User } from "../types/types";
@@ -10,21 +10,24 @@ import CreateText from "./CreateText";
 
 extend({ RoundedPlaneGeometry })
 
-export default function CardTexture({ firstName, lastName, userId, batch, batchId, date, profilePicture = '/images/mypic.jpg' }: User) {
+export default function CardTexture({ firstName, lastName, userId, batch, date, profilePicture = '/images/mypic.jpg' }: User) {
 
-    const templateTexture = useTexture('/images/template.svg')
+    const templateTexture = useTexture('/images/template_v2.svg')
 
     const codeRef = useRef<THREE.Group>(null)
 
-    const { barcodeTexture, qrTexture } = useBarcodeAndQrTextures({ 
+    const { barcodeTexture, qrTexture } = useBarcodeAndQrTextures({
         rollNo: userId,
-        qrData: "https://github.com/Suryansh00001"
+        qrData: "https://github.com/Shre-shth"
     });
 
     const profilePictureTexture = useTexture(profilePicture)
 
+    const logoTexture = useTexture('/images/new_logo.png')
+
     useMemo(() => { fixTexture(templateTexture) }, [templateTexture])
     useMemo(() => { fixTexture(profilePictureTexture) }, [profilePictureTexture])
+    useMemo(() => { fixTexture(logoTexture) }, [logoTexture])
 
     function fixTexture(texture: THREE.Texture | THREE.CanvasTexture) {
         texture.flipY = false
@@ -54,12 +57,21 @@ export default function CardTexture({ firstName, lastName, userId, batch, batchI
                 <meshBasicMaterial map={templateTexture} />
             </mesh>
 
+            {/* Top Left Logo */}
+            <mesh position={[100, 150, 0.5]}>
+                <planeGeometry args={[180, 180]} />
+                <meshBasicMaterial map={logoTexture} transparent depthTest={false} />
+            </mesh>
+
             <group position={[256, 360, 0]}>
-                <CreateText fontSize={110} lineHeight={.9} setTransform={(e, width, height) => e.position.set(-230 + width! / 2, 60 - height! / 2, 0)}               >
-                    {`${firstName} ${lastName}`}
+                {/* First Name */}
+                <CreateText fontSize={95} maxWidth={800} lineHeight={.9} setTransform={(e, width, height) => e.position.set(-230 + width! / 2, 0 - height! / 2, 0)}>
+                    {firstName}
                 </CreateText>
-
-
+                {/* Last Name */}
+                <CreateText fontSize={95} maxWidth={800} lineHeight={.9} setTransform={(e, width, height) => e.position.set(-230 + width! / 2, 110 - height! / 2, 0)}>
+                    {lastName}
+                </CreateText>
 
                 <group position={[0, 85, 0.1]}>
                     <mesh position={[266, 0, 0]}>
@@ -86,27 +98,12 @@ export default function CardTexture({ firstName, lastName, userId, batch, batchI
 
                 <CreateText
                     color={"#242424"}
-                    fontSize={24}
+                    fontSize={60}
                     font="/font/ApfelGrotezk.otf"
-                    setTransform={(e, width, height) => e.position.set(-230 + width! / 2, (360 - (height! / 2)) - 25, 0)}
+                    setTransform={(e, width, height) => e.position.set(0, (360 - (height! / 2)) - 5, 0)}
                 >
-                    {`Batch-${batchId.toUpperCase()}`}
+                    24095105
                 </CreateText>
-
-                <CreateText
-                    color={"#242424"}
-                    fontSize={24}
-                    font="/font/ApfelGrotezk.otf"
-                    setTransform={(e, width, height) => e.position.set(230 - width! / 2, (360 - (height! / 2)) - 25, 0)}
-                >
-                    {date}
-                </CreateText>
-
-
-                <Image position={[178, - 210, 0]} url={profilePicture}>
-                    <roundedPlaneGeometry args={[150, 130, [0, '100%', '100%', 0]]} />
-                </Image>
-
 
             </group >
 
