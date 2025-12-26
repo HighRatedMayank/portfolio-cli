@@ -1,4 +1,4 @@
-# 🚀 Interactive Terminal Portfolio
+# 🚀 Interactive CLI Portfolio
 
 > **"I tell people I'm a developer, and they believe me !!"** 😉
 
@@ -19,7 +19,6 @@
 
 Welcome to my **Interactive Portfolio**, a unique blend of retro-terminal aesthetics and modern 3D web technologies. This project isn't just a website; it's an experience. It features a fully functional **command-line interface (CLI)** for navigating my professional journey and a realistic **3D Identity Card** that interacts with your mouse movements.
 
-**Live Demo:** [Insert Your Link Here]
 
 ## ✨ Key Features
 
@@ -31,7 +30,7 @@ Welcome to my **Interactive Portfolio**, a unique blend of retro-terminal aesthe
 ### 💳 The 3D ID Card
 - **Physics-Based**: The card swings and reacts to your cursor, mimicking real-world physics using `react-three/rapier`.
 - **Dynamic Textures**: Showcases my details, a QR code to my GitHub, and a custom logo.
-- **Interactive**: <tap the ID> to see it react!
+- **Interactive**: <TAP the ID> to see it react!
 
 ### 🎨 Visual & Audio
 - **Typewriter Effects**: Smooth, retro-style text animations.
@@ -52,8 +51,8 @@ Want to run this locally? Follow these steps:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Shre-shth/portfolio-terminal.git
-cd portfolio-terminal
+git clone https://github.com/Shre-shth/portfolio-cli.git
+cd portfolio-CLI
 ```
 
 ### 2. Install Dependencies
