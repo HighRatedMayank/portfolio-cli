@@ -272,8 +272,6 @@ export const Terminal = () => {
     return parts.length > 0 ? parts : line;
   };
 
-
-
   return (
     <>
       {/* Top Navigation Bar */}

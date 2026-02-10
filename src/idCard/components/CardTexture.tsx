@@ -18,7 +18,7 @@ export default function CardTexture({ firstName, lastName, userId, batch, profil
 
     const { barcodeTexture, qrTexture } = useBarcodeAndQrTextures({
         rollNo: userId,
-        qrData: "https://github.com/Shre-shth"
+        qrData: "https://github.com/HighRatedMayank"
     });
 
     const profilePictureTexture = useTexture(profilePicture)
@@ -54,12 +54,19 @@ export default function CardTexture({ firstName, lastName, userId, batch, profil
 
             <mesh position={[512, 512, 0]}>
                 <planeGeometry args={[1024, 1024]} />
-                <meshBasicMaterial map={templateTexture} />
+                {/* <meshBasicMaterial map={templateTexture} /> */}
+                <meshBasicMaterial color="#050505" />
             </mesh>
 
+            {/* Decorative Accent Strip */}
+            <mesh position={[15, 512, 0.1]}>
+                <planeGeometry args={[30, 1024]} />
+                <meshBasicMaterial color="#00ff88" />
+            </mesh>
+            
             {/* Top Left Logo */}
             <mesh position={[100, 150, 0.5]}>
-                <planeGeometry args={[180, 180]} />
+                <planeGeometry args={[150, 150]} />
                 <meshBasicMaterial map={logoTexture} transparent depthTest={false} />
             </mesh>
 
@@ -73,17 +80,7 @@ export default function CardTexture({ firstName, lastName, userId, batch, profil
                     {lastName}
                 </CreateText>
 
-                <group position={[0, 85, 0.1]}>
-                    <mesh position={[266, 0, 0]}>
-                        <planeGeometry args={[20, 400]} />
-                        <meshBasicMaterial color='#fff' />
-                    </mesh>
-
-                    <mesh position={[256, 0, 0]}>
-                        <planeGeometry args={[5, 400]} />
-                        <meshBasicMaterial color='#242424' />
-                    </mesh>
-                </group>
+                {/* Accent Line Removed - Replaced with side strip */ }
 
                 <CreateText
                     fontSize={70}
@@ -97,12 +94,12 @@ export default function CardTexture({ firstName, lastName, userId, batch, profil
                 </CreateText>
 
                 <CreateText
-                    color={"#242424"}
+                    color={"#ffffff"}
                     fontSize={60}
                     font="/font/ApfelGrotezk.otf"
                     setTransform={(e, _width, height) => e.position.set(0, (360 - (height! / 2)) - 5, 0)}
                 >
-                    24095105
+                    {userId}
                 </CreateText>
 
             </group >
@@ -111,7 +108,7 @@ export default function CardTexture({ firstName, lastName, userId, batch, profil
                 <group ref={codeRef}>
                     <CreateText
                         position={[0, -190, 0]}
-                        color={"#242424"}
+                        color={"#ffffff"}
                         fontSize={20}
                         letterSpacing={0.1}
                         font="/font/Minecraft.ttf"

@@ -87,7 +87,7 @@ export default function App() {
         }}>
           <IdCard
             firstName="Mayank"
-            lastName=""
+            lastName="Vishwakarma"
             userId="2023BEE-025"
             batch="Tech Enthusiast"
             batchId="23"

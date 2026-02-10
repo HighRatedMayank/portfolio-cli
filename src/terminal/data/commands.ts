@@ -2,7 +2,7 @@ export const commands = {
   help: `
 🧭 HELP :: COMMAND INDEX
 ──────────────────────────────────────────────
-> about ......... 📖  Learn about Mayank
+> about ......... 📖  Learn about Mayank Vishwakarma
 > projects ...... 🚀  Explore featured creations
 > skills ........ 🛠️  View technical stack
 > extracurricular 👥  Clubs & content creation
@@ -15,7 +15,7 @@ export const commands = {
 `,
 
   about: `
-👨‍💻 ABOUT :: MAYANK
+👨‍💻 ABOUT :: MAYANK VISHWAKARMA
 ──────────────────────────────────────────────
 I am an aspiring software developer with a strong foundation in Data Structures and Algorithms. My journey began with competitive programming, and I am now channeling that logic into building modern web applications. I thrive on strategy and problem-solving, which fuels both my coding sessions and my daily games of Chess. As a tech enthusiast, I am always eager to learn new tools and turn complex ideas into reality.
 
@@ -26,10 +26,10 @@ I am an aspiring software developer with a strong foundation in Data Structures 
   projects: `
 🚀 PROJECTS :: FEATURED & PRODUCTION-GRADE
 ──────────────────────────────────────────────
-💻 Custom Shell
-> A custom command-line shell implementation in C++ that provides simplified commands for common operations.
-> Tech: C++ • Systems Programming
-> 🔗 Repo: https://github.com/Shre-shth/custom-Shell
+💻 NOTE STACK
+> A custom Notion like collaborative text editor.
+> Tech: Typescript • Next.js • Node.js • MongoDB • Y.js • Socket.io
+> 🔗 Repo: https://github.com/HighRatedMayank/note-stack
 
 🌌 Project Endurance
 > Created 3D visualization of Interstellar movie's wormhole and the supermassive blackhole Gargantua.
@@ -46,16 +46,16 @@ I am an aspiring software developer with a strong foundation in Data Structures 
 🛠️ SKILLS :: ENGINEERING TOOLCHAIN
 ──────────────────────────────────────────────
 💻 Languages
-> C++ • C • Python
+> C++ • C • Python • Typescript • Javascript
 
 🌐 Frameworks & Libraries
-> PyTorch • TensorFlow
+> PyTorch • TensorFlow • React • Next.js • Node.js • MongoDB 
 
 🔧 Tools & Platforms
 > Git • VS Code • Linux • Antigravity
 
 🧠 Domains
-> Machine Learning • Deep Learning (NLP) • Competitive Programming
+> Machine Learning • Web Development • Data Structures Algorithms
 `,
 
   extracurricular: `
@@ -83,11 +83,11 @@ I am an aspiring software developer with a strong foundation in Data Structures 
 
 ──────────────────────────────────────────────
 📧 Email ...... 🔗 Copy Email: mailto:shreshth.vishwakarma.7@gmail.com
-🐙 GitHub ..... 🔗 Profile: https://github.com/Shre-shth
-💼 LinkedIn ... 🔗 Connect: https://www.linkedin.com/in/shreshth-vishwakarma/
-🧠 Codeforces . 🔗 Profile: https://codeforces.com/profile/Shre-shth
+🐙 GitHub ..... 🔗 Profile: https://github.com/HighRatedMayank
+💼 LinkedIn ... 🔗 Connect: https://www.linkedin.com/in/mayank-vishwakarma-38146a279/
+🧠 Leetcode ... 🔗 Profile: https://leetcode.com/HighRatedMayank
 
-> Open to collaborations, hackathons & AI-driven projects.
+> Open to collaborations, hackathons & Software-driven projects.
 `,
 
   sudo: `
