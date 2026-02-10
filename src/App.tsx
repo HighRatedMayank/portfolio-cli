@@ -88,10 +88,10 @@ export default function App() {
           <IdCard
             firstName="Shreshth"
             lastName="Vishwakarma"
-            userId="24095105"
+            userId="2023BEE-025"
             batch="Tech Enthusiast"
-            batchId="24"
-            date="24095105"
+            batchId="23"
+            date="2023BEE-025"
             profilePicture="/images/mypic.jpg"
           />
           <div style={{
