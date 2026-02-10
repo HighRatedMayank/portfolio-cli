@@ -5,7 +5,7 @@ export const Terminal = () => {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<Array<{ type: 'command' | 'output', content: string, isTyping?: boolean, displayedContent?: string }>>([
     { type: 'command', content: 'welcome' },
-    { type: 'output', content: "Hi, I'm Shreshth Vishwakarma, a sophomore at IIT (BHU).\n\nWelcome to my interactive terminal!\nType 'help' to see available commands.", isTyping: false, displayedContent: "Hi, I'm Shreshth Vishwakarma, a sophomore at IIT (BHU).\n\nWelcome to my interactive terminal!\nType 'help' to see available commands." }
+    { type: 'output', content: "Hi, I'm Mayank, a student at IIIT Gwalior.\n\nWelcome to my interactive terminal!\nType 'help' to see available commands.", isTyping: false, displayedContent: "Hi, I'm Mayank, a student at IIIT Gwalior.\n\nWelcome to my interactive terminal!\nType 'help' to see available commands." }
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
@@ -329,7 +329,7 @@ export const Terminal = () => {
           }}>
             {item.type === 'command' ? (
               <div>
-                <span style={{ color: '#4fa3ff' }}>shreshth@portfolio</span>
+                <span style={{ color: '#4fa3ff' }}>mayank@portfolio</span>
                 <span style={{ color: '#00ff88' }}>:~$</span>
                 <span style={{ color: '#ffffff' }}> {item.content}</span>
               </div>
@@ -354,7 +354,7 @@ export const Terminal = () => {
           marginTop: '8px',
           fontFamily: '"Courier New", "Lucida Console", "Monaco", "Consolas", "Liberation Mono", "DejaVu Sans Mono", monospace'
         }}>
-          <span style={{ color: '#4fa3ff' }}>shreshth@portfolio</span>
+          <span style={{ color: '#4fa3ff' }}>mayank@portfolio</span>
           <span style={{ color: '#00ff88' }}>:~$</span>
           <span style={{ color: '#ffffff' }}> </span>
           <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>

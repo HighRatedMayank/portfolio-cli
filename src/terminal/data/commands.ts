@@ -2,26 +2,23 @@ export const commands = {
   help: `
 🧭 HELP :: COMMAND INDEX
 ──────────────────────────────────────────────
-> about ......... 📖  Learn about Shreshth Vishwakarma  
-> projects ...... 🚀  Explore featured creations  
-> skills ........ 🛠️  View technical stack  
-> extracurricular 👥  Clubs & content creation  
-> education ..... 🎓  Academic milestones  
-> contact ....... 📞  Reach out or connect  
-> sudo .......... 🔐  Secret command? Try it  
+> about ......... 📖  Learn about Mayank
+> projects ...... 🚀  Explore featured creations
+> skills ........ 🛠️  View technical stack
+> extracurricular 👥  Clubs & content creation
+> education ..... 🎓  Academic milestones
+> contact ....... 📞  Reach out or connect
+> sudo .......... 🔐  Secret command? Try it
 > clear ......... 🧹  Clear terminal output
 
 💡 Tip: Type any command and hit [Enter] to explore.
 `,
 
   about: `
-👨‍💻 ABOUT :: SHRESHTH VISHWAKARMA
+👨‍💻 ABOUT :: MAYANK
 ──────────────────────────────────────────────
-I hail from Kanpur, Uttar Pradesh, and currently in my 4th semester.
-I explore Machine Learning & Deep Learning, specifically in the NLP domain.
-I also write blogs for the IIT (BHU) Foundation and love vibe coding using Cursor and Antigravity.
-Currently doing Competitive Programming.
-I am pretty much active on X and love to spend time on geopolitics and politics.
+I am an aspiring software developer with a strong foundation in Data Structures and Algorithms. My journey began with competitive programming, and I am now channeling that logic into building modern web applications. I thrive on strategy and problem-solving, which fuels both my coding sessions and my daily games of Chess. As a tech enthusiast, I am always eager to learn new tools and turn complex ideas into reality.
+
 
 🎯 Always learning, building, and pushing boundaries.
 `,
@@ -64,29 +61,26 @@ I am pretty much active on X and love to spend time on geopolitics and politics.
   extracurricular: `
 👥 EXTRACURRICULAR :: CLUBS & TEAMS
 ──────────────────────────────────────────────
-🔹 COPS-Intelligence Guild — Core Team Member
-> Part of the machine learning and AI wing of the Club of Programmers.
+🔹 Rotaract club of youth - IIIT Gwalior
+> Head of Operations
 
-🔹 SAIC (Student Alumni Interaction Cell) — Student Executive
-> Facilitating interactions between students and alumni.
+🔹 Team Member - Aurora'24
+> Content Team
 
-🔹 IIT (BHU) Foundation — Content Creator
-> Writing blogs for the official website.
-
-🔹 EES (Electronics Engineering Society) — Content Writer
-> Content writer in the content team.
 `,
 
   education: `
 🎓 EDUCATION :: ACADEMIC BACKGROUND
 ──────────────────────────────────────────────
-🏛️ Indian Institute of Technology (BHU), Varanasi
-> Branch: Electronics Engineering
-> Year: 2024-2028 (Currently in 4th Semester)
+🏛️ ABV - Indian Institute of Information Technology and Management, Gwalior
+> Branch: Electrical and Electronics Engineering
+> Year: 2023-2027
+
 `,
 
   contact: `
-📞 CONTACT :: CONNECT WITH SHRESHTH
+📞 CONTACT :: CONNECT WITH MAYANK
+
 ──────────────────────────────────────────────
 📧 Email ...... 🔗 Copy Email: mailto:shreshth.vishwakarma.7@gmail.com
 🐙 GitHub ..... 🔗 Profile: https://github.com/Shre-shth
@@ -100,7 +94,8 @@ I am pretty much active on X and love to spend time on geopolitics and politics.
 🔐 ACCESS DENIED :: NICE TRY
 ──────────────────────────────────────────────
 > Root privileges required.
-> Only Shreshth has administrative clearance.
+> Only Mayank has administrative clearance.
+
 
 💡 Curiosity is cool — intrusion isn’t 😉
 `,

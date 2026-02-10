@@ -86,8 +86,8 @@ export default function App() {
           overflow: 'hidden',
         }}>
           <IdCard
-            firstName="Shreshth"
-            lastName="Vishwakarma"
+            firstName="Mayank"
+            lastName=""
             userId="2023BEE-025"
             batch="Tech Enthusiast"
             batchId="23"
