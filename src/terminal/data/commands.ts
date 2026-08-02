@@ -34,15 +34,23 @@ I am an aspiring software developer with a strong foundation in Data Structures 
 > Tech: Next.js • Firebase • Lexical • Yjs • Razorpay
 > 🔗 Repo: https://github.com/HighRatedMayank/note-stack
 
-🌌 Project Endurance
-> Created 3D visualization of Interstellar movie's wormhole and the supermassive blackhole Gargantua.
-> Tech: Three.js • React • WebGL
-> ⚠️ Repo is private.
+🌌 Distributed Task Orchestrator
+> Architected a fault-tolerant distributed system in Go capable of coordinating async jobs across a dynamic
+  cluster, utilizing a leader-follower pattern to manage task assignment and prevent double-execution.
+> Implemented distributed locking and leader election using Redis (SETNX) primitives, ensuring strong
+  consistency and "at-least-once" delivery guarantees even during network partitions or node crashes.
+> Optimized database throughput by implementing connection pooling via pgxpool, managing high-concurrency
+  write loads significantly more efficiently than standard ORM implementations.
+> Tech: Go • Postgres • Redis • Docker 
+> 🔗 Repo: https://github.com/HighRatedMayank/task-scheduler
 
-🆔 Anonymous Identity Synthesizer
-> Anonymous crowdsourced identity generator of individuals.
-> Tech: ML • Deep Learning
-> ⚠️ Repo is private.
+🆔 P2P File Sharing
+> Engineered a secure real-time P2P file-sharing platform with end-to-end encryption, integrating a WebSocket
+  signaling server and Redis Hashes for peer discovery to reduce connection latency by 50%.
+> Optimized system scalability & network performance using WebRTC DataChannels and implementing
+  conditional SFU scaling, maintaining low-latency bandwidth distribution across 1,000+ concurrent peers.
+> Tech: Go • Redis • WebSocket • WebRTC • SFU
+> 🔗 Repo: https://github.com/HighRatedMayank/P2P-GO
 `,
 
   skills: `
