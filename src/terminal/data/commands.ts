@@ -93,7 +93,7 @@ I am an aspiring software developer with a strong foundation in Data Structures 
 📞 CONTACT :: CONNECT WITH MAYANK
 
 ──────────────────────────────────────────────
-📧 Email ...... 🔗 Copy Email: mailto:shreshth.vishwakarma.7@gmail.com
+📧 Email ...... 🔗 Copy Email: mailto: mayankvishwakarma947@gmail.com
 🐙 GitHub ..... 🔗 Profile: https://github.com/HighRatedMayank
 💼 LinkedIn ... 🔗 Connect: https://www.linkedin.com/in/mayank-vishwakarma-38146a279/
 🧠 Leetcode ... 🔗 Profile: https://leetcode.com/HighRatedMayank
