@@ -26,9 +26,12 @@ I am an aspiring software developer with a strong foundation in Data Structures 
   projects: `
 🚀 PROJECTS :: FEATURED & PRODUCTION-GRADE
 ──────────────────────────────────────────────
-💻 NOTE STACK
-> A custom Notion like collaborative text editor.
-> Tech: Typescript • Next.js • Node.js • MongoDB • Y.js • Socket.io
+💻 Note Stack — Real-Time Collaborative Notes Platform
+> Built a Notion-style rich-text editor using Lexical with autosave, a sticky toolbar, and a hierarchical document
+  tree featuring drag-and-drop reorganization, collapsible sections, and fast search.
+> Architected real-time collaboration & billing workflows, combining Yjs/WebSockets for live multi-user cursors
+  and presence indicators with Razorpay payment gateway integration and Firestore tiered access control.
+> Tech: Next.js • Firebase • Lexical • Yjs • Razorpay
 > 🔗 Repo: https://github.com/HighRatedMayank/note-stack
 
 🌌 Project Endurance
